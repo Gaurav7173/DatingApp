@@ -1,5 +1,8 @@
 using API.Data;
 using Microsoft.EntityFrameworkCore;
+using API;
+using API.Interfaces;
+// using API.Services; // Ensure that the API.Services namespace is correctly defined and referenced
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,7 @@ builder.Services.AddDbContext<DataContext>(opt =>
 });
 
 builder.Services.AddCors();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();
 
