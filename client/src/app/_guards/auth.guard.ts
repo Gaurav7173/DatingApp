@@ -4,10 +4,10 @@ import { inject } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  const accontService = inject(AccountService);
+  const accountService = inject(AccountService);
   const toastr = inject(ToastrService);
 
-  if (accontService.currentUser())
+  if (accountService.currentUser())
   {
     return true; 
   }else
