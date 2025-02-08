@@ -30,9 +30,10 @@ export class NavComponent
       error: error => this.toastr.error(error.error)
     })
   }
-  logout() 
-  {
+  logout() {
     this.accontService.logout();
+    this.model = {};  // ✅ Reset model to clear input fields
     this.router.navigateByUrl('/');
   }
+  
 }
